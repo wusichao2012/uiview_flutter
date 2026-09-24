@@ -1,0 +1,22 @@
+name: uview_flutter
+description: A Flutter community reimplementation of the uView UI component library (https://uviewpro.cn). Provides theme system and base components (Button, Cell, Tag, Badge, Icon, Image, etc.).
+version: 0.2.0
+homepage: https://uviewpro.cn
+repository: https://uviewpro.cn
+
+environment:
+  sdk: ">=2.17.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
