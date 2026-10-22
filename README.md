@@ -1,6 +1,7 @@
 # uview_flutter
 
 uView UI 组件库的 **Flutter 社区复刻版**，对标 [uView Pro](https://uviewpro.cn) 的组件体系与默认视觉。
+组件在线文档:[docs](https://wusichao2012.github.io/uiview_flutter/site/components.html)
 
 > 顶层用 `UView` 注入主题（对标 uView 的 `ConfigProvider`），组件内部通过 `UView.of(context)` 读取主题 token；全量组件贴近 uView 默认蓝色风格、走主题色 `type`。
 
@@ -116,4 +117,4 @@ flutter run
 
 ## 许可证
 
-MIT
+Apache License
