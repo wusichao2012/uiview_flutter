@@ -29,8 +29,9 @@ class UDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = UView.of(context);
     final lineColor = color ?? theme.borderColor;
-    final line = Expanded(
-      child: dashed
+
+    Widget buildLine({bool expanded = false}) {
+      final child = dashed
           ? SizedBox(
               height: thickness,
               child: CustomPaint(
@@ -42,13 +43,14 @@ class UDivider extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border(top: BorderSide(color: lineColor, width: thickness)),
               ),
-            ),
-    );
+            );
+      return expanded ? Expanded(child: child) : child;
+    }
 
     if (text == null || text!.isEmpty) {
       return Container(
         margin: margin ?? const EdgeInsets.symmetric(vertical: 12, horizontal: 0),
-        child: line,
+        child: buildLine(),
       );
     }
 
@@ -69,10 +71,10 @@ class UDivider extends StatelessWidget {
       margin: margin ?? const EdgeInsets.symmetric(vertical: 12),
       child: Row(
         children: textAlign == MainAxisAlignment.end
-            ? [line, textWidget]
+            ? [buildLine(expanded: true), textWidget]
             : textAlign == MainAxisAlignment.start
-                ? [textWidget, line]
-                : [line, textWidget, line],
+                ? [textWidget, buildLine(expanded: true)]
+                : [buildLine(expanded: true), textWidget, buildLine(expanded: true)],
       ),
     );
   }

@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>组件文档 · uView Flutter</title>
+<meta name="description" content="uView UI 组件库的 Flutter 社区复刻版 · 主题系统 + 50+ 基础组件">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <button class="menu-toggle" aria-label="菜单">☰</button>
+  <a class="logo" href="index.html">
+    <span class="mark">U</span><span>uView Flutter</span>
+  </a>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="components.html">组件</a>
+    <a href="index.html#license">许可证</a>
+    <a class="gh" href="https://github.com/your-org/uview_flutter" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <aside class="sidebar"><nav class="sidebar-nav"><div class="nav-section"><a class="nav-section-title" href="#快速开始">快速开始</a><ul></ul></div><div class="nav-section"><a class="nav-section-title" href="#组件总览">组件总览</a><ul></ul></div><div class="nav-section"><a class="nav-section-title" href="#基础组件">基础组件</a><ul><li><a href="#button-按钮">Button 按钮</a></li><li><a href="#text-文本">Text 文本</a></li><li><a href="#tag-标签">Tag 标签</a></li><li><a href="#badge-徽标数">Badge 徽标数</a></li><li><a href="#cell-单元格">Cell 单元格</a></li><li><a href="#icon-图标">Icon 图标</a></li><li><a href="#image-图片">Image 图片</a></li><li><a href="#loading-加载">Loading 加载</a></li><li><a href="#gap-间隔">Gap 间隔</a></li><li><a href="#layout-布局">Layout 布局</a></li><li><a href="#divider-分割线">Divider 分割线</a></li></ul></div><div class="nav-section"><a class="nav-section-title" href="#表单组件">表单组件</a><ul><li><a href="#form-表单">Form 表单</a></li><li><a href="#input-输入框">Input 输入框</a></li><li><a href="#textarea-文本域">Textarea 文本域</a></li><li><a href="#search-搜索">Search 搜索</a></li><li><a href="#verificationcode-验证码">VerificationCode 验证码</a></li><li><a href="#checkbox-复选框">Checkbox 复选框</a></li><li><a href="#radio-单选框">Radio 单选框</a></li><li><a href="#switch-开关">Switch 开关</a></li><li><a href="#select-选择器">Select 选择器</a></li><li><a href="#numberbox-步进器">NumberBox 步进器</a></li><li><a href="#slider-滑动">Slider 滑动</a></li><li><a href="#rate-评分">Rate 评分</a></li><li><a href="#picker-滚轮选择器">Picker 滚轮选择器</a></li><li><a href="#calendar-日历">Calendar 日历</a></li><li><a href="#upload-上传">Upload 上传</a></li><li><a href="#keyboard-键盘">Keyboard 键盘</a></li></ul></div><div class="nav-section"><a class="nav-section-title" href="#反馈组件">反馈组件</a><ul><li><a href="#toast-轻提示">Toast 轻提示</a></li><li><a href="#alerttips-警告">AlertTips 警告</a></li><li><a href="#modal-模态框">Modal 模态框</a></li><li><a href="#popup-弹出层">Popup 弹出层</a></li><li><a href="#actionsheet-操作菜单">ActionSheet 操作菜单</a></li><li><a href="#noticebar-通知">NoticeBar 通知</a></li><li><a href="#collapse-折叠面板">Collapse 折叠面板</a></li><li><a href="#swipeaction-滑动">SwipeAction 滑动</a></li></ul></div><div class="nav-section"><a class="nav-section-title" href="#导航组件">导航组件</a><ul><li><a href="#navbar-导航栏">Navbar 导航栏</a></li><li><a href="#tabbar-标签栏">Tabbar 标签栏</a></li><li><a href="#tabs-标签页">Tabs 标签页</a></li><li><a href="#steps-步骤条">Steps 步骤条</a></li><li><a href="#dropdown-下拉菜单">Dropdown 下拉菜单</a></li><li><a href="#backtop-返回顶部">BackTop 返回顶部</a></li></ul></div><div class="nav-section"><a class="nav-section-title" href="#布局组件">布局组件</a><ul><li><a href="#grid-宫格">Grid 宫格</a></li><li><a href="#swiper-轮播">Swiper 轮播</a></li><li><a href="#avatar-头像">Avatar 头像</a></li><li><a href="#empty-空状态">Empty 空状态</a></li><li><a href="#skeleton-骨架屏">Skeleton 骨架屏</a></li><li><a href="#sticky-吸顶">Sticky 吸顶</a></li><li><a href="#waterfall-瀑布流">Waterfall 瀑布流</a></li></ul></div><div class="nav-section"><a class="nav-section-title" href="#数据-其他">数据/其他</a><ul><li><a href="#progress-进度条">Progress 进度条</a></li><li><a href="#countdown-倒计时">CountDown 倒计时</a></li><li><a href="#countto-数字滚动">CountTo 数字滚动</a></li><li><a href="#card-卡片">Card 卡片</a></li><li><a href="#loadmore-加载更多">LoadMore 加载更多</a></li></ul></div><div class="nav-section"><a class="nav-section-title" href="#其他组件">其他组件</a><ul><li><a href="#floatingball-悬浮球">FloatingBall 悬浮球</a></li></ul></div></nav></aside>
+  <main class="content">
+<h1 id="uview-flutter-组件库使用说明">uView Flutter 组件库使用说明</h1>
+<blockquote>本文档由示例应用自动截图生成，截图来自 Android 模拟器（API 36）。 每个组件包含<strong>效果截图</strong>与<strong>用法示例</strong>；带“交互效果”的组件需点击后才会出现对应界面。</blockquote>
+<h2 id="快速开始">快速开始</h2>
+<p>在应用顶层用 <code>UView</code> 注入主题后即可使用全部组件：</p>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">import</span> <span class="c-str">'package:flutter/material.dart'</span>;
+<span class="c-kw">import</span> <span class="c-str">'package:uview_flutter/uview_flutter.dart'</span>;
+
+<span class="c-kw">void</span> main() =&gt; runApp(<span class="c-kw">const</span> MyApp());
+
+<span class="c-kw">class</span> MyApp <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> MyApp({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> UView(
+      theme: <span class="c-kw">const</span> UViewThemeData(),
+      child: <span class="c-type">MaterialApp</span>(home: <span class="c-kw">const</span> HomePage()),
+    );
+  }
+}</code></pre></div>
+<p>运行时可通过 <code>UView.update(context, ...)</code> 切换主题。</p>
+<h2 id="组件总览">组件总览</h2>
+<p><strong>基础组件</strong></p>
+<ul><li>[Button 按钮](#button-按钮) — type / plain / round / loading / block / icon</li><li>[Text 文本](#text-文本) — type 取主题色、bold、lines 截断</li><li>[Tag 标签](#tag-标签) — type / plain / round / closable / 自定义色</li><li>[Badge 徽标数](#badge-徽标数) — 数字 / 圆点 / 溢出 / 角标包裹</li><li>[Cell 单元格](#cell-单元格) — title / value / label / isLink / required</li><li>[Icon 图标](#icon-图标) — 按名称取图标，统一主题色</li><li>[Image 图片](#image-图片) — circle / radius / 加载与失败占位</li><li>[Loading 加载](#loading-加载) — 圆环 spinner，可换色换尺寸</li><li>[Gap 间隔](#gap-间隔) — 布局中等距间隔</li><li>[Layout 布局](#layout-布局) — URow / UCol，支持 gap</li><li>[Divider 分割线](#divider-分割线) — 中间文字 / 虚线 / 对齐</li></ul>
+<p><strong>表单组件</strong></p>
+<ul><li>[Form 表单](#form-表单) — UFormItem + 校验</li><li>[Input 输入框](#input-输入框) — clearable / password / 前后缀</li><li>[Textarea 文本域](#textarea-文本域) — 计数 / 多行</li><li>[Search 搜索](#search-搜索) — 搜索图标 + 清空</li><li>[VerificationCode 验证码](#verificationcode-验证码) — 输入框 + 倒计时</li><li>[Checkbox 复选框](#checkbox-复选框) — 多选组</li><li>[Radio 单选框](#radio-单选框) — 单选组</li><li>[Switch 开关](#switch-开关) — 开关选择器</li><li>[Select 选择器](#select-选择器) — 底部弹窗列表</li><li>[NumberBox 步进器](#numberbox-步进器) — min/max/step</li><li>[Slider 滑动](#slider-滑动) — 滑动选择器</li><li>[Rate 评分](#rate-评分) — 星级评分</li><li>[Picker 滚轮选择器](#picker-滚轮选择器) — 多列滚轮 / 字段触发</li><li>[Calendar 日历](#calendar-日历) — 月历单日选择</li><li>[Upload 上传](#upload-上传) — 上传格子（接 onAdd）</li><li>[Keyboard 键盘](#keyboard-键盘) — 自定义数字键盘</li></ul>
+<p><strong>反馈组件</strong></p>
+<ul><li>[Toast 轻提示](#toast-轻提示) — 全局 Overlay / loading</li><li>[AlertTips 警告](#alerttips-警告) — 内嵌提示条</li><li>[Modal 模态框](#modal-模态框) — 确认/取消对话框</li><li>[Popup 弹出层](#popup-弹出层) — 多方向弹出</li><li>[ActionSheet 操作菜单](#actionsheet-操作菜单) — 底部操作菜单</li><li>[NoticeBar 通知](#noticebar-通知) — 滚动通知条</li><li>[Collapse 折叠面板](#collapse-折叠面板) — 手风琴/多开</li><li>[SwipeAction 滑动](#swipeaction-滑动) — 左滑操作按钮</li></ul>
+<p><strong>导航组件</strong></p>
+<ul><li>[Navbar 导航栏](#navbar-导航栏) — 顶部标题/返回/操作</li><li>[Tabbar 标签栏](#tabbar-标签栏) — 底部切换</li><li>[Tabs 标签页](#tabs-标签页) — 顶部标签页</li><li>[Steps 步骤条](#steps-步骤条) — 横向步骤</li><li>[Dropdown 下拉菜单](#dropdown-下拉菜单) — 浮层选项</li><li>[BackTop 返回顶部](#backtop-返回顶部) — 滚动吸顶按钮</li></ul>
+<p><strong>布局组件</strong></p>
+<ul><li>[Grid 宫格](#grid-宫格) — 多列图标网格</li><li>[Swiper 轮播](#swiper-轮播) — 自动轮播 + 指示点</li><li>[Avatar 头像](#avatar-头像) — 圆形/方形</li><li>[Empty 空状态](#empty-空状态) — 空数据占位</li><li>[Skeleton 骨架屏](#skeleton-骨架屏) — 加载占位动画</li><li>[Sticky 吸顶](#sticky-吸顶) — 滚动吸顶</li><li>[Waterfall 瀑布流](#waterfall-瀑布流) — 多列不等高</li></ul>
+<p><strong>数据/其他</strong></p>
+<ul><li>[Progress 进度条](#progress-进度条) — 百分比/主题色</li><li>[CountDown 倒计时](#countdown-倒计时) — 天时分秒</li><li>[CountTo 数字滚动](#countto-数字滚动) — 动画计数</li><li>[Card 卡片](#card-卡片) — 标题/内容容器</li><li>[LoadMore 加载更多](#loadmore-加载更多) — 加载状态</li></ul>
+<p><strong>其他组件</strong></p>
+<ul><li>[FloatingBall 悬浮球](#floatingball-悬浮球) — 可拖拽 / 展开菜单</li></ul>
+<h2 id="基础组件">基础组件</h2>
+<h3 id="button-按钮">Button 按钮</h3>
+<p><strong>说明</strong>：type / plain / round / loading / block / icon</p>
+<figure class="shot"><img src="assets/screenshots/c01.png" alt="Button 按钮 效果" loading="lazy"><figcaption>Button 按钮 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> ButtonDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> ButtonDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> UCol(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      gap: <span class="c-num">12</span>,
+      children: [
+        <span class="c-kw">const</span> UText(<span class="c-str">'按类型'</span>, bold: <span class="c-kw">true</span>),
+        URow(
+          gap: <span class="c-num">10</span>,
+          children: <span class="c-kw">const</span> [
+            UButton(text: <span class="c-str">'主要'</span>, type: UViewType.primary),
+            UButton(text: <span class="c-str">'成功'</span>, type: UViewType.success),
+            UButton(text: <span class="c-str">'警告'</span>, type: UViewType.warning),
+            UButton(text: <span class="c-str">'错误'</span>, type: UViewType.error),
+          ],
+        ),
+        <span class="c-kw">const</span> UText(<span class="c-str">'幽灵 / 胶囊 / 细边'</span>, bold: <span class="c-kw">true</span>),
+        URow(
+          gap: <span class="c-num">10</span>,
+          children: <span class="c-kw">const</span> [
+            UButton(text: <span class="c-str">'plain'</span>, plain: <span class="c-kw">true</span>),
+            UButton(text: <span class="c-str">'round'</span>, round: <span class="c-kw">true</span>),
+            UButton(text: <span class="c-str">'hairline'</span>, plain: <span class="c-kw">true</span>, hairline: <span class="c-kw">true</span>),
+          ],
+        ),
+        <span class="c-kw">const</span> UText(<span class="c-str">'禁用 / 加载 / 图标'</span>, bold: <span class="c-kw">true</span>),
+        URow(
+          gap: <span class="c-num">10</span>,
+          children: <span class="c-kw">const</span> [
+            UButton(text: <span class="c-str">'禁用'</span>, disabled: <span class="c-kw">true</span>),
+            UButton(text: <span class="c-str">'加载'</span>, loading: <span class="c-kw">true</span>),
+            UButton(text: <span class="c-str">'设置'</span>, icon: <span class="c-type">Icons</span>.settings, plain: <span class="c-kw">true</span>),
+          ],
+        ),
+        <span class="c-kw">const</span> UText(<span class="c-str">'通栏按钮'</span>, bold: <span class="c-kw">true</span>),
+        <span class="c-kw">const</span> UButton(text: <span class="c-str">'确认提交'</span>, block: <span class="c-kw">true</span>, onPressed: <span class="c-kw">null</span>),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="text-文本">Text 文本</h3>
+<p><strong>说明</strong>：type 取主题色、bold、lines 截断</p>
+<figure class="shot"><img src="assets/screenshots/c02.png" alt="Text 文本 效果" loading="lazy"><figcaption>Text 文本 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> TextDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> TextDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> UCol(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      gap: <span class="c-num">10</span>,
+      children: <span class="c-kw">const</span> [
+        UText(<span class="c-str">'主要文字'</span>, type: UViewType.def, bold: <span class="c-kw">true</span>, size: <span class="c-num">16</span>),
+        UText(<span class="c-str">'成功色文字'</span>, type: UViewType.success),
+        UText(<span class="c-str">'警告色文字'</span>, type: UViewType.warning),
+        UText(<span class="c-str">'错误色文字'</span>, type: UViewType.error),
+        UText(<span class="c-str">'信息色文字'</span>, type: UViewType.info),
+        UText(
+          <span class="c-str">'这是一段会被截断的长文本，最多显示两行，超出部分以省略号结尾，用于演示 lines 参数。'</span>,
+          lines: <span class="c-num">2</span>,
+        ),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="tag-标签">Tag 标签</h3>
+<p><strong>说明</strong>：type / plain / round / closable / 自定义色</p>
+<figure class="shot"><img src="assets/screenshots/c03.png" alt="Tag 标签 效果" loading="lazy"><figcaption>Tag 标签 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> TagDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> TagDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> UCol(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      gap: <span class="c-num">12</span>,
+      children: [
+        URow(
+          gap: <span class="c-num">8</span>,
+          children: <span class="c-kw">const</span> [
+            UTag(text: <span class="c-str">'标签'</span>, type: UViewType.primary),
+            UTag(text: <span class="c-str">'成功'</span>, type: UViewType.success),
+            UTag(text: <span class="c-str">'警告'</span>, type: UViewType.warning),
+            UTag(text: <span class="c-str">'错误'</span>, type: UViewType.error),
+          ],
+        ),
+        URow(
+          gap: <span class="c-num">8</span>,
+          children: <span class="c-kw">const</span> [
+            UTag(text: <span class="c-str">'plain'</span>, plain: <span class="c-kw">true</span>),
+            UTag(text: <span class="c-str">'round'</span>, round: <span class="c-kw">true</span>),
+            UTag(text: <span class="c-str">'mini'</span>, size: UViewSize.mini),
+            UTag(text: <span class="c-str">'带图标'</span>, icon: <span class="c-type">Icons</span>.star, type: UViewType.primary),
+          ],
+        ),
+        URow(
+          gap: <span class="c-num">8</span>,
+          children: <span class="c-kw">const</span> [
+            UTag(text: <span class="c-str">'可关闭'</span>, closable: <span class="c-kw">true</span>, type: UViewType.info),
+            UTag(text: <span class="c-str">'自定义'</span>, bgColor: <span class="c-type">Color</span>(0xFFE6F0FF), textColor: <span class="c-type">Color</span>(0xFF3C9CFF)),
+          ],
+        ),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="badge-徽标数">Badge 徽标数</h3>
+<p><strong>说明</strong>：数字 / 圆点 / 溢出 / 角标包裹</p>
+<figure class="shot"><img src="assets/screenshots/c04.png" alt="Badge 徽标数 效果" loading="lazy"><figcaption>Badge 徽标数 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> BadgeDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> BadgeDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> URow(
+      gap: <span class="c-num">24</span>,
+      children: [
+        <span class="c-kw">const</span> UBadge(text: <span class="c-str">'NEW'</span>, child: UText(<span class="c-str">'消息'</span>, bold: <span class="c-kw">true</span>)),
+        <span class="c-kw">const</span> UBadge(count: <span class="c-num">8</span>, child: UIcon(name: <span class="c-str">'bell'</span>)),
+        <span class="c-kw">const</span> UBadge(count: <span class="c-num">199</span>, child: UIcon(name: <span class="c-str">'email'</span>)),
+        <span class="c-kw">const</span> UBadge(isDot: <span class="c-kw">true</span>, child: UIcon(name: <span class="c-str">'setting'</span>)),
+        <span class="c-kw">const</span> UBadge(count: <span class="c-num">3</span>, type: UViewType.primary, child: UText(<span class="c-str">'动态'</span>)),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="cell-单元格">Cell 单元格</h3>
+<p><strong>说明</strong>：title / value / label / isLink / required</p>
+<figure class="shot"><img src="assets/screenshots/c05.png" alt="Cell 单元格 效果" loading="lazy"><figcaption>Cell 单元格 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> CellDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> CellDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> UCellGroup(
+      title: <span class="c-str">'基础信息'</span>,
+      children: [
+        <span class="c-kw">const</span> UCell(title: <span class="c-str">'收货人'</span>, value: <span class="c-str">'张三'</span>, isLink: <span class="c-kw">true</span>),
+        <span class="c-kw">const</span> UCell(title: <span class="c-str">'手机号'</span>, value: <span class="c-str">'138****8888'</span>, isLink: <span class="c-kw">true</span>),
+        <span class="c-kw">const</span> UCell(title: <span class="c-str">'详细地址'</span>, label: <span class="c-str">'浙江省杭州市余杭区文一西路'</span>, isLink: <span class="c-kw">true</span>),
+        <span class="c-kw">const</span> UCell(title: <span class="c-str">'设为默认'</span>, <span class="c-kw">required</span>: <span class="c-kw">true</span>, value: <span class="c-str">'必填项'</span>),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="icon-图标">Icon 图标</h3>
+<p><strong>说明</strong>：按名称取图标，统一主题色</p>
+<figure class="shot"><img src="assets/screenshots/c06.png" alt="Icon 图标 效果" loading="lazy"><figcaption>Icon 图标 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> IconDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> IconDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  <span class="c-kw">static</span> <span class="c-kw">const</span> names = [
+    <span class="c-str">'setting'</span>, <span class="c-str">'star-fill'</span>, <span class="c-str">'heart-fill'</span>, <span class="c-str">'search'</span>, <span class="c-str">'check-circle-fill'</span>,
+    <span class="c-str">'warning-fill'</span>, <span class="c-str">'error-circle-fill'</span>, <span class="c-str">'info-circle-fill'</span>, <span class="c-str">'plus'</span>, <span class="c-str">'minus'</span>,
+    <span class="c-str">'arrow-right'</span>, <span class="c-str">'phone'</span>, <span class="c-str">'email'</span>, <span class="c-str">'location'</span>, <span class="c-str">'user'</span>, <span class="c-str">'lock'</span>, <span class="c-str">'edit'</span>, <span class="c-str">'trash'</span>,
+  ];
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> Wrap(
+      spacing: <span class="c-num">18</span>,
+      runSpacing: <span class="c-num">18</span>,
+      children: names
+          .map((n) =&gt; <span class="c-type">Column</span>(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  UIcon(name: n, size: <span class="c-num">26</span>),
+                  <span class="c-kw">const</span> <span class="c-type">SizedBox</span>(height: <span class="c-num">4</span>),
+                  UText(n, size: <span class="c-num">10</span>, type: UViewType.info),
+                ],
+              ))
+          .toList(),
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="image-图片">Image 图片</h3>
+<p><strong>说明</strong>：circle / radius / 加载与失败占位</p>
+<figure class="shot"><img src="assets/screenshots/c07.png" alt="Image 图片 效果" loading="lazy"><figcaption>Image 图片 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> ImageDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> ImageDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">const</span> url = <span class="c-str">'https://uviewpro.cn/logo.png'</span>;
+    <span class="c-kw">return</span> URow(
+      gap: <span class="c-num">16</span>,
+      children: [
+        <span class="c-kw">const</span> UImage(src: url, width: <span class="c-num">64</span>, height: <span class="c-num">64</span>, shape: UViewShape.circle),
+        <span class="c-kw">const</span> UImage(src: url, width: <span class="c-num">64</span>, height: <span class="c-num">64</span>, radius: <span class="c-num">12</span>),
+        <span class="c-kw">const</span> UImage(src: url, width: <span class="c-num">64</span>, height: <span class="c-num">64</span>),
+        <span class="c-kw">const</span> UImage(src: <span class="c-kw">null</span>, width: <span class="c-num">64</span>, height: <span class="c-num">64</span>, radius: <span class="c-num">12</span>),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="loading-加载">Loading 加载</h3>
+<p><strong>说明</strong>：圆环 spinner，可换色换尺寸</p>
+<figure class="shot"><img src="assets/screenshots/c08.png" alt="Loading 加载 效果" loading="lazy"><figcaption>Loading 加载 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> LoadingDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> LoadingDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> URow(
+      gap: <span class="c-num">20</span>,
+      children: <span class="c-kw">const</span> [
+        ULoading(size: <span class="c-num">18</span>),
+        ULoading(size: <span class="c-num">28</span>, type: UViewType.success),
+        ULoading(size: <span class="c-num">38</span>, type: UViewType.warning),
+        ULoading(size: <span class="c-num">48</span>, type: UViewType.error),
+        ULoading(show: <span class="c-kw">false</span>),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="gap-间隔">Gap 间隔</h3>
+<p><strong>说明</strong>：布局中等距间隔</p>
+<figure class="shot"><img src="assets/screenshots/c09.png" alt="Gap 间隔 效果" loading="lazy"><figcaption>Gap 间隔 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> GapDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> GapDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> <span class="c-type">Container</span>(
+      color: <span class="c-type">Colors</span>.amber.withOpacity(<span class="c-num">0.15</span>),
+      padding: <span class="c-kw">const</span> <span class="c-type">EdgeInsets</span>.all(<span class="c-num">8</span>),
+      child: UCol(
+        gap: <span class="c-num">0</span>,
+        children: [
+          <span class="c-type">Container</span>(height: <span class="c-num">24</span>, color: <span class="c-type">Colors</span>.amber),
+          <span class="c-kw">const</span> UGap(height: <span class="c-num">8</span>),
+          <span class="c-type">Container</span>(height: <span class="c-num">24</span>, color: <span class="c-type">Colors</span>.amber),
+          <span class="c-kw">const</span> UGap(height: <span class="c-num">16</span>),
+          <span class="c-type">Container</span>(height: <span class="c-num">24</span>, color: <span class="c-type">Colors</span>.amber),
+        ],
+      ),
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="layout-布局">Layout 布局</h3>
+<p><strong>说明</strong>：URow / UCol，支持 gap</p>
+<figure class="shot"><img src="assets/screenshots/c10.png" alt="Layout 布局 效果" loading="lazy"><figcaption>Layout 布局 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> LayoutDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> LayoutDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> UCol(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      gap: <span class="c-num">12</span>,
+      children: [
+        <span class="c-kw">const</span> UText(<span class="c-str">'URow（gap=12）'</span>, bold: <span class="c-kw">true</span>),
+        URow(
+          gap: <span class="c-num">12</span>,
+          children: List.generate(
+              <span class="c-num">4</span>, (i) =&gt; <span class="c-type">Container</span>(width: <span class="c-num">40</span>, height: <span class="c-num">40</span>, color: <span class="c-type">Colors</span>.blue.withOpacity(<span class="c-num">0.6</span>))),
+        ),
+        <span class="c-kw">const</span> UText(<span class="c-str">'UCol（gap=12）'</span>, bold: <span class="c-kw">true</span>),
+        UCol(
+          gap: <span class="c-num">12</span>,
+          children: List.generate(
+              <span class="c-num">3</span>, (i) =&gt; <span class="c-type">Container</span>(height: <span class="c-num">28</span>, color: <span class="c-type">Colors</span>.green.withOpacity(<span class="c-num">0.5</span>))),
+        ),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="divider-分割线">Divider 分割线</h3>
+<p><strong>说明</strong>：中间文字 / 虚线 / 对齐</p>
+<figure class="shot"><img src="assets/screenshots/c11.png" alt="Divider 分割线 效果" loading="lazy"><figcaption>Divider 分割线 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> DividerDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> DividerDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> <span class="c-kw">const</span> UCol(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      gap: <span class="c-num">8</span>,
+      children: [
+        UDivider(),
+        UDivider(text: <span class="c-str">'居中文字'</span>),
+        UDivider(text: <span class="c-str">'左对齐'</span>, textAlign: MainAxisAlignment.start),
+        UDivider(text: <span class="c-str">'虚线'</span>, dashed: <span class="c-kw">true</span>),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h2 id="表单组件">表单组件</h2>
+<h3 id="form-表单">Form 表单</h3>
+<p><strong>说明</strong>：UFormItem + 校验</p>
+<figure class="shot"><img src="assets/screenshots/c12.png" alt="Form 表单 效果" loading="lazy"><figcaption>Form 表单 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c12_open.png" alt="Form 表单 交互效果" loading="lazy"><figcaption>Form 表单 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> FormDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> FormDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _FormDemoState createState() =&gt; _FormDemoState();
+}
+
+<span class="c-kw">class</span> _FormDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;FormDemo&gt; {
+  <span class="c-kw">final</span> UFormController _ctrl = UFormController();
+  String? _msg;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> UCol(
+      gap: <span class="c-num">14</span>,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        UForm(
+          controller: _ctrl,
+          child: UCol(
+            gap: <span class="c-num">14</span>,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              UFormItem(
+                label: <span class="c-str">'用户名'</span>,
+                <span class="c-kw">required</span>: <span class="c-kw">true</span>,
+                child: UInput(
+                  placeholder: <span class="c-str">'请输入用户名'</span>,
+                  validator: (v) =&gt; (v == <span class="c-kw">null</span> || v.isEmpty) ? <span class="c-str">'必填'</span> : <span class="c-kw">null</span>,
+                ),
+              ),
+              UFormItem(
+                label: <span class="c-str">'密码'</span>,
+                <span class="c-kw">required</span>: <span class="c-kw">true</span>,
+                child: UInput(
+                  password: <span class="c-kw">true</span>,
+                  clearable: <span class="c-kw">true</span>,
+                  placeholder: <span class="c-str">'请输入密码'</span>,
+                  validator: (v) =&gt; (v != <span class="c-kw">null</span> &amp;&amp; v.length &lt; <span class="c-num">6</span>) ? <span class="c-str">'至少 6 位'</span> : <span class="c-kw">null</span>,
+                ),
+              ),
+            ],
+          ),
+        ),
+        UButton(
+          text: <span class="c-str">'校验提交'</span>,
+          onPressed: () {
+            <span class="c-kw">final</span> ok = _ctrl.validate();
+            setState(() =&gt; _msg = ok ? <span class="c-str">'校验通过'</span> : <span class="c-str">'请检查标红项'</span>);
+          },
+        ),
+        <span class="c-kw">if</span> (_msg != <span class="c-kw">null</span>) UText(_msg!, type: UViewType.primary, bold: <span class="c-kw">true</span>),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="input-输入框">Input 输入框</h3>
+<p><strong>说明</strong>：clearable / password / 前后缀</p>
+<figure class="shot"><img src="assets/screenshots/c13.png" alt="Input 输入框 效果" loading="lazy"><figcaption>Input 输入框 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> InputDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> InputDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) {
+    <span class="c-kw">return</span> <span class="c-kw">const</span> UCol(
+      gap: <span class="c-num">12</span>,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        UInput(placeholder: <span class="c-str">'基础输入框'</span>),
+        UInput(placeholder: <span class="c-str">'可清空'</span>, clearable: <span class="c-kw">true</span>),
+        UInput(placeholder: <span class="c-str">'密码'</span>, password: <span class="c-kw">true</span>, clearable: <span class="c-kw">true</span>),
+        UInput(placeholder: <span class="c-str">'带前缀图标'</span>, prefixIcon: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.person, size: <span class="c-num">18</span>)),
+        UInput(placeholder: <span class="c-str">'禁用'</span>, enabled: <span class="c-kw">false</span>),
+      ],
+    );
+  }
+}</code></pre></div>
+</details>
+<h3 id="textarea-文本域">Textarea 文本域</h3>
+<p><strong>说明</strong>：计数 / 多行</p>
+<figure class="shot"><img src="assets/screenshots/c14.png" alt="Textarea 文本域 效果" loading="lazy"><figcaption>Textarea 文本域 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> TextareaDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> TextareaDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt;
+      <span class="c-kw">const</span> UTextarea(placeholder: <span class="c-str">'请输入多行文本...'</span>, maxLength: <span class="c-num">100</span>, showCounter: <span class="c-kw">true</span>, maxLines: <span class="c-num">3</span>);
+}</code></pre></div>
+</details>
+<h3 id="search-搜索">Search 搜索</h3>
+<p><strong>说明</strong>：搜索图标 + 清空</p>
+<figure class="shot"><img src="assets/screenshots/c15.png" alt="Search 搜索 效果" loading="lazy"><figcaption>Search 搜索 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> SearchDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> SearchDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> USearch(placeholder: <span class="c-str">'搜索商品'</span>);
+}</code></pre></div>
+</details>
+<h3 id="verificationcode-验证码">VerificationCode 验证码</h3>
+<p><strong>说明</strong>：输入框 + 倒计时</p>
+<figure class="shot"><img src="assets/screenshots/c16.png" alt="VerificationCode 验证码 效果" loading="lazy"><figcaption>VerificationCode 验证码 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> VerificationCodeDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> VerificationCodeDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> UVerificationCode();
+}</code></pre></div>
+</details>
+<h3 id="checkbox-复选框">Checkbox 复选框</h3>
+<p><strong>说明</strong>：多选组</p>
+<figure class="shot"><img src="assets/screenshots/c17.png" alt="Checkbox 复选框 效果" loading="lazy"><figcaption>Checkbox 复选框 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> CheckboxDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> CheckboxDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _CheckboxDemoState createState() =&gt; _CheckboxDemoState();
+}
+
+<span class="c-kw">class</span> _CheckboxDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;CheckboxDemo&gt; {
+  List&lt;String&gt; _v = [<span class="c-str">'b'</span>];
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCheckboxGroup&lt;String&gt;(
+        value: _v,
+        onChanged: (v) =&gt; setState(() =&gt; _v = v),
+        options: <span class="c-kw">const</span> [
+          UCheckboxOption(<span class="c-str">'苹果'</span>, <span class="c-str">'a'</span>),
+          UCheckboxOption(<span class="c-str">'香蕉'</span>, <span class="c-str">'b'</span>),
+          UCheckboxOption(<span class="c-str">'橘子'</span>, <span class="c-str">'c'</span>),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="radio-单选框">Radio 单选框</h3>
+<p><strong>说明</strong>：单选组</p>
+<figure class="shot"><img src="assets/screenshots/c18.png" alt="Radio 单选框 效果" loading="lazy"><figcaption>Radio 单选框 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> RadioDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> RadioDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _RadioDemoState createState() =&gt; _RadioDemoState();
+}
+
+<span class="c-kw">class</span> _RadioDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;RadioDemo&gt; {
+  String? _v = <span class="c-str">'b'</span>;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; URadioGroup&lt;String&gt;(
+        value: _v,
+        onChanged: (v) =&gt; setState(() =&gt; _v = v),
+        options: <span class="c-kw">const</span> [
+          URadioOption(<span class="c-str">'男'</span>, <span class="c-str">'male'</span>),
+          URadioOption(<span class="c-str">'女'</span>, <span class="c-str">'female'</span>),
+          URadioOption(<span class="c-str">'保密'</span>, <span class="c-str">'secret'</span>),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="switch-开关">Switch 开关</h3>
+<p><strong>说明</strong>：开关选择器</p>
+<figure class="shot"><img src="assets/screenshots/c19.png" alt="Switch 开关 效果" loading="lazy"><figcaption>Switch 开关 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> SwitchDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> SwitchDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _SwitchDemoState createState() =&gt; _SwitchDemoState();
+}
+
+<span class="c-kw">class</span> _SwitchDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;SwitchDemo&gt; {
+  bool _v = <span class="c-kw">true</span>;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; URow(
+        children: [
+          <span class="c-kw">const</span> UText(<span class="c-str">'接收推送通知'</span>, size: <span class="c-num">15</span>),
+          <span class="c-kw">const</span> Spacer(),
+          USwitch(value: _v, onChanged: (b) =&gt; setState(() =&gt; _v = b)),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="select-选择器">Select 选择器</h3>
+<p><strong>说明</strong>：底部弹窗列表</p>
+<figure class="shot"><img src="assets/screenshots/c20.png" alt="Select 选择器 效果" loading="lazy"><figcaption>Select 选择器 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c20_open.png" alt="Select 选择器 交互效果" loading="lazy"><figcaption>Select 选择器 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> SelectDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> SelectDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _SelectDemoState createState() =&gt; _SelectDemoState();
+}
+
+<span class="c-kw">class</span> _SelectDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;SelectDemo&gt; {
+  String? _v;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; USelect&lt;String&gt;(
+        value: _v,
+        placeholder: <span class="c-str">'请选择城市'</span>,
+        title: <span class="c-str">'选择城市'</span>,
+        onChanged: (v) =&gt; setState(() =&gt; _v = v),
+        options: <span class="c-kw">const</span> [
+          USelectOption(<span class="c-str">'北京'</span>, <span class="c-str">'bj'</span>),
+          USelectOption(<span class="c-str">'上海'</span>, <span class="c-str">'sh'</span>),
+          USelectOption(<span class="c-str">'杭州'</span>, <span class="c-str">'hz'</span>),
+          USelectOption(<span class="c-str">'深圳'</span>, <span class="c-str">'sz'</span>),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="numberbox-步进器">NumberBox 步进器</h3>
+<p><strong>说明</strong>：min/max/step</p>
+<figure class="shot"><img src="assets/screenshots/c21.png" alt="NumberBox 步进器 效果" loading="lazy"><figcaption>NumberBox 步进器 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> NumberBoxDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> NumberBoxDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _NumberBoxDemoState createState() =&gt; _NumberBoxDemoState();
+}
+
+<span class="c-kw">class</span> _NumberBoxDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;NumberBoxDemo&gt; {
+  double _v = <span class="c-num">1</span>;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UNumberBox(
+        value: _v,
+        min: <span class="c-num">0</span>,
+        max: <span class="c-num">10</span>,
+        onChanged: (v) =&gt; setState(() =&gt; _v = v),
+      );
+}</code></pre></div>
+</details>
+<h3 id="slider-滑动">Slider 滑动</h3>
+<p><strong>说明</strong>：滑动选择器</p>
+<figure class="shot"><img src="assets/screenshots/c22.png" alt="Slider 滑动 效果" loading="lazy"><figcaption>Slider 滑动 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> SliderDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> SliderDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _SliderDemoState createState() =&gt; _SliderDemoState();
+}
+
+<span class="c-kw">class</span> _SliderDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;SliderDemo&gt; {
+  double _v = <span class="c-num">40</span>;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCol(
+        gap: <span class="c-num">8</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          USlider(value: _v, divisions: <span class="c-num">100</span>, label: _v.round().toString(), onChanged: (v) =&gt; setState(() =&gt; _v = v)),
+          UText(<span class="c-str">'当前值：${_v.round()}'</span>, type: UViewType.info),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="rate-评分">Rate 评分</h3>
+<p><strong>说明</strong>：星级评分</p>
+<figure class="shot"><img src="assets/screenshots/c23.png" alt="Rate 评分 效果" loading="lazy"><figcaption>Rate 评分 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> RateDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> RateDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _RateDemoState createState() =&gt; _RateDemoState();
+}
+
+<span class="c-kw">class</span> _RateDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;RateDemo&gt; {
+  int _v = <span class="c-num">3</span>;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; URate(value: _v, onChanged: (v) =&gt; setState(() =&gt; _v = v));
+}</code></pre></div>
+</details>
+<h3 id="picker-滚轮选择器">Picker 滚轮选择器</h3>
+<p><strong>说明</strong>：多列滚轮 / 字段触发</p>
+<figure class="shot"><img src="assets/screenshots/c24.png" alt="Picker 滚轮选择器 效果" loading="lazy"><figcaption>Picker 滚轮选择器 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c24_open.png" alt="Picker 滚轮选择器 交互效果" loading="lazy"><figcaption>Picker 滚轮选择器 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> PickerDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> PickerDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _PickerDemoState createState() =&gt; _PickerDemoState();
+}
+
+<span class="c-kw">class</span> _PickerDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;PickerDemo&gt; {
+  List&lt;int&gt;? _idx;
+  <span class="c-kw">void</span> _open() {
+    UPicker.show(
+      context,
+      columns: <span class="c-kw">const</span> [
+        [<span class="c-str">'男'</span>, <span class="c-str">'女'</span>],
+      ],
+    ).then((r) {
+      <span class="c-kw">if</span> (r != <span class="c-kw">null</span>) UToast.show(context, <span class="c-str">'选择索引: $r'</span>);
+    });
+  }
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCol(
+        gap: <span class="c-num">12</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          UPickerField(
+            columns: <span class="c-kw">const</span> [
+              [<span class="c-str">'周一'</span>, <span class="c-str">'周二'</span>, <span class="c-str">'周三'</span>, <span class="c-str">'周四'</span>, <span class="c-str">'周五'</span>, <span class="c-str">'周六'</span>, <span class="c-str">'周日'</span>],
+              [<span class="c-str">'上午'</span>, <span class="c-str">'下午'</span>, <span class="c-str">'晚上'</span>],
+            ],
+            valueIndexes: _idx,
+            title: <span class="c-str">'选择时间'</span>,
+            onChanged: (v) =&gt; setState(() =&gt; _idx = v),
+          ),
+          UButton(text: <span class="c-str">'直接弹出'</span>, onPressed: _open),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="calendar-日历">Calendar 日历</h3>
+<p><strong>说明</strong>：月历单日选择</p>
+<figure class="shot"><img src="assets/screenshots/c25.png" alt="Calendar 日历 效果" loading="lazy"><figcaption>Calendar 日历 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c25_open.png" alt="Calendar 日历 交互效果" loading="lazy"><figcaption>Calendar 日历 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> CalendarDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> CalendarDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _CalendarDemoState createState() =&gt; _CalendarDemoState();
+}
+
+<span class="c-kw">class</span> _CalendarDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;CalendarDemo&gt; {
+  DateTime? _v = DateTime.now();
+  <span class="c-kw">void</span> _open() {
+    UCalendar.show(context, value: _v).then((r) {
+      <span class="c-kw">if</span> (r != <span class="c-kw">null</span>) setState(() =&gt; _v = r);
+    });
+  }
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCol(
+        gap: <span class="c-num">12</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          UCalendar(value: _v, onChanged: (d) =&gt; setState(() =&gt; _v = d), type: UViewType.primary),
+          UButton(text: <span class="c-str">'弹窗选择'</span>, onPressed: _open),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="upload-上传">Upload 上传</h3>
+<p><strong>说明</strong>：上传格子（接 onAdd）</p>
+<figure class="shot"><img src="assets/screenshots/c26.png" alt="Upload 上传 效果" loading="lazy"><figcaption>Upload 上传 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c26_open.png" alt="Upload 上传 交互效果" loading="lazy"><figcaption>Upload 上传 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> UploadDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> UploadDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _UploadDemoState createState() =&gt; _UploadDemoState();
+}
+
+<span class="c-kw">class</span> _UploadDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;UploadDemo&gt; {
+  List&lt;UUploadItem&gt; _files = [];
+  <span class="c-kw">void</span> _add() {
+    <span class="c-kw">final</span> i = _files.length;
+    setState(() =&gt; _files.add(UUploadItem(
+          thumb: <span class="c-type">Container</span>(
+            color: <span class="c-type">Colors</span>.blue.withOpacity(<span class="c-num">0.18</span>),
+            child: <span class="c-type">Center</span>(child: UText(<span class="c-str">'图$i'</span>)),
+          ),
+          value: i,
+        )));
+  }
+  <span class="c-kw">void</span> _remove(int i) =&gt; setState(() =&gt; _files.removeAt(i));
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt;
+      UUpload(files: _files, onAdd: _add, onRemove: _remove, maxCount: <span class="c-num">6</span>);
+}</code></pre></div>
+</details>
+<h3 id="keyboard-键盘">Keyboard 键盘</h3>
+<p><strong>说明</strong>：自定义数字键盘</p>
+<figure class="shot"><img src="assets/screenshots/c27.png" alt="Keyboard 键盘 效果" loading="lazy"><figcaption>Keyboard 键盘 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c27_open.png" alt="Keyboard 键盘 交互效果" loading="lazy"><figcaption>Keyboard 键盘 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> KeyboardDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> KeyboardDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _KeyboardDemoState createState() =&gt; _KeyboardDemoState();
+}
+
+<span class="c-kw">class</span> _KeyboardDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;KeyboardDemo&gt; {
+  String _text = <span class="c-str">''</span>;
+  <span class="c-kw">void</span> _open() {
+    UKeyboard.show(
+      context,
+      onKey: (k) =&gt; setState(() =&gt; _text += k),
+      onDelete: () =&gt; setState(
+          () =&gt; _text = _text.isNotEmpty ? _text.substring(<span class="c-num">0</span>, _text.length - <span class="c-num">1</span>) : <span class="c-str">''</span>),
+      onConfirm: () =&gt; UToast.show(context, <span class="c-str">'完成：$_text'</span>),
+    );
+  }
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCol(
+        gap: <span class="c-num">12</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          UText(<span class="c-str">'输入：$_text'</span>, size: <span class="c-num">16</span>),
+          UButton(text: <span class="c-str">'唤起键盘'</span>, onPressed: _open),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h2 id="反馈组件">反馈组件</h2>
+<h3 id="toast-轻提示">Toast 轻提示</h3>
+<p><strong>说明</strong>：全局 Overlay / loading</p>
+<figure class="shot"><img src="assets/screenshots/c28.png" alt="Toast 轻提示 效果" loading="lazy"><figcaption>Toast 轻提示 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c28_open.png" alt="Toast 轻提示 交互效果" loading="lazy"><figcaption>Toast 轻提示 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> ToastDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> ToastDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCol(
+        gap: <span class="c-num">12</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          URow(
+            gap: <span class="c-num">10</span>,
+            children: [
+              UButton(text: <span class="c-str">'普通'</span>, onPressed: () =&gt; UToast.show(context, <span class="c-str">'这是一条普通提示'</span>)),
+              UButton(text: <span class="c-str">'成功'</span>, type: UViewType.success, onPressed: () =&gt; UToast.success(context, <span class="c-str">'操作成功'</span>)),
+            ],
+          ),
+          URow(
+            gap: <span class="c-num">10</span>,
+            children: [
+              UButton(text: <span class="c-str">'错误'</span>, type: UViewType.error, onPressed: () =&gt; UToast.error(context, <span class="c-str">'操作失败'</span>)),
+              UButton(text: <span class="c-str">'Loading'</span>, onPressed: () {
+                UToast.loading(context, message: <span class="c-str">'加载中'</span>);
+                Future.delayed(<span class="c-kw">const</span> Duration(seconds: <span class="c-num">2</span>), () =&gt; UToast.hide(context));
+              }),
+            ],
+          ),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="alerttips-警告">AlertTips 警告</h3>
+<p><strong>说明</strong>：内嵌提示条</p>
+<figure class="shot"><img src="assets/screenshots/c29.png" alt="AlertTips 警告 效果" loading="lazy"><figcaption>AlertTips 警告 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> AlertTipsDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> AlertTipsDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCol(
+        gap: <span class="c-num">12</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <span class="c-kw">const</span> [
+          UAlertTips(type: UViewType.success, title: <span class="c-str">'成功'</span>, description: <span class="c-str">'操作已完成'</span>),
+          UAlertTips(type: UViewType.warning, title: <span class="c-str">'注意'</span>, description: <span class="c-str">'请检查输入'</span>, showClose: <span class="c-kw">true</span>),
+          UAlertTips(type: UViewType.error, description: <span class="c-str">'网络异常，请重试'</span>),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="modal-模态框">Modal 模态框</h3>
+<p><strong>说明</strong>：确认/取消对话框</p>
+<figure class="shot"><img src="assets/screenshots/c30.png" alt="Modal 模态框 效果" loading="lazy"><figcaption>Modal 模态框 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c30_open.png" alt="Modal 模态框 交互效果" loading="lazy"><figcaption>Modal 模态框 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> ModalDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> ModalDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UButton(
+        text: <span class="c-str">'打开模态框'</span>,
+        onPressed: () {
+          UModal.show(
+            context,
+            title: <span class="c-str">'提示'</span>,
+            content: <span class="c-str">'确定要删除吗？'</span>,
+            confirmText: <span class="c-str">'删除'</span>,
+            type: UViewType.error,
+          ).then((r) {
+            <span class="c-kw">if</span> (r.confirmed) UToast.show(context, <span class="c-str">'已删除'</span>);
+          });
+        },
+      );
+}</code></pre></div>
+</details>
+<h3 id="popup-弹出层">Popup 弹出层</h3>
+<p><strong>说明</strong>：多方向弹出</p>
+<figure class="shot"><img src="assets/screenshots/c31.png" alt="Popup 弹出层 效果" loading="lazy"><figcaption>Popup 弹出层 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c31_open.png" alt="Popup 弹出层 交互效果" loading="lazy"><figcaption>Popup 弹出层 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> PopupDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> PopupDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  <span class="c-kw">static</span> <span class="c-type">Widget</span> _panel(String t) =&gt;
+      <span class="c-type">Container</span>(padding: <span class="c-kw">const</span> <span class="c-type">EdgeInsets</span>.all(<span class="c-num">24</span>), child: UText(t, bold: <span class="c-kw">true</span>, size: <span class="c-num">16</span>));
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; URow(
+        gap: <span class="c-num">12</span>,
+        children: [
+          UButton(text: <span class="c-str">'底部'</span>, onPressed: () =&gt; UPopup.show(
+                context,
+                position: UPopupPosition.bottom,
+                child: _panel(<span class="c-str">'底部弹出内容'</span>),
+              )),
+          UButton(text: <span class="c-str">'居中'</span>, onPressed: () =&gt; UPopup.show(
+                context,
+                position: UPopupPosition.center,
+                child: _panel(<span class="c-str">'居中弹出内容'</span>),
+              )),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="actionsheet-操作菜单">ActionSheet 操作菜单</h3>
+<p><strong>说明</strong>：底部操作菜单</p>
+<figure class="shot"><img src="assets/screenshots/c32.png" alt="ActionSheet 操作菜单 效果" loading="lazy"><figcaption>ActionSheet 操作菜单 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c32_open.png" alt="ActionSheet 操作菜单 交互效果" loading="lazy"><figcaption>ActionSheet 操作菜单 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> ActionSheetDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> ActionSheetDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  <span class="c-kw">static</span> <span class="c-kw">const</span> _opts = [<span class="c-str">'拍照'</span>, <span class="c-str">'从相册选择'</span>, <span class="c-str">'取消选择'</span>];
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UButton(
+        text: <span class="c-str">'打开操作菜单'</span>,
+        onPressed: () {
+          UActionSheet.show(context, actions: _opts).then((i) {
+            <span class="c-kw">if</span> (i != <span class="c-kw">null</span>) UToast.show(context, <span class="c-str">'选中：${_opts[i]}'</span>);
+          });
+        },
+      );
+}</code></pre></div>
+</details>
+<h3 id="noticebar-通知">NoticeBar 通知</h3>
+<p><strong>说明</strong>：滚动通知条</p>
+<figure class="shot"><img src="assets/screenshots/c33.png" alt="NoticeBar 通知 效果" loading="lazy"><figcaption>NoticeBar 通知 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> NoticeBarDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> NoticeBarDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCol(
+        gap: <span class="c-num">10</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          UNoticeBar(text: <span class="c-str">'这是一条滚动的普通通知消息，用于演示滚动效果，足够长才会滚动。'</span>, mode: UNoticeBarMode.closeable),
+          UNoticeBar(text: <span class="c-str">'短通知（不滚动）'</span>, type: UViewType.info, mode: UNoticeBarMode.link, scrollable: <span class="c-kw">false</span>, onTap: () {}),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="collapse-折叠面板">Collapse 折叠面板</h3>
+<p><strong>说明</strong>：手风琴/多开</p>
+<figure class="shot"><img src="assets/screenshots/c34.png" alt="Collapse 折叠面板 效果" loading="lazy"><figcaption>Collapse 折叠面板 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c34_open.png" alt="Collapse 折叠面板 交互效果" loading="lazy"><figcaption>Collapse 折叠面板 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> CollapseDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> CollapseDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UCollapse(
+        accordion: <span class="c-kw">true</span>,
+        children: <span class="c-kw">const</span> [
+          UCollapseItem(title: <span class="c-str">'面板一'</span>, content: UText(<span class="c-str">'这是第一个面板的内容。'</span>)),
+          UCollapseItem(title: <span class="c-str">'面板二'</span>, content: UText(<span class="c-str">'这是第二个面板的内容。'</span>)),
+          UCollapseItem(title: <span class="c-str">'面板三'</span>, content: UText(<span class="c-str">'这是第三个面板的内容。'</span>)),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="swipeaction-滑动">SwipeAction 滑动</h3>
+<p><strong>说明</strong>：左滑操作按钮</p>
+<figure class="shot"><img src="assets/screenshots/c35.png" alt="SwipeAction 滑动 效果" loading="lazy"><figcaption>SwipeAction 滑动 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c35_open.png" alt="SwipeAction 滑动 交互效果" loading="lazy"><figcaption>SwipeAction 滑动 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> SwipeActionDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> SwipeActionDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; USwipeActionCell(
+        actions: [
+          USwipeAction(text: <span class="c-str">'删除'</span>, type: UViewType.error, onTap: () =&gt; UToast.show(context, <span class="c-str">'删除'</span>)),
+          USwipeAction(text: <span class="c-str">'收藏'</span>, type: UViewType.primary, onTap: () =&gt; UToast.show(context, <span class="c-str">'收藏'</span>)),
+        ],
+        child: <span class="c-type">Container</span>(
+          color: <span class="c-type">Colors</span>.white,
+          padding: <span class="c-kw">const</span> <span class="c-type">EdgeInsets</span>.all(<span class="c-num">16</span>),
+          child: <span class="c-kw">const</span> UText(<span class="c-str">'向左滑动我看看'</span>, size: <span class="c-num">15</span>),
+        ),
+      );
+}</code></pre></div>
+</details>
+<h2 id="导航组件">导航组件</h2>
+<h3 id="navbar-导航栏">Navbar 导航栏</h3>
+<p><strong>说明</strong>：顶部标题/返回/操作</p>
+<figure class="shot"><img src="assets/screenshots/c36.png" alt="Navbar 导航栏 效果" loading="lazy"><figcaption>Navbar 导航栏 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> NavbarDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> NavbarDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        decoration: <span class="c-type">BoxDecoration</span>(
+            border: <span class="c-type">Border</span>.all(color: UView.of(context).borderColor)),
+        child: UNavbar(
+          title: <span class="c-str">'标题'</span>,
+          showBack: <span class="c-kw">true</span>,
+          safeAreaTop: <span class="c-kw">false</span>,
+          onBack: () {},
+          actions: <span class="c-kw">const</span> [
+            <span class="c-type">Padding</span>(
+              padding: <span class="c-type">EdgeInsets</span>.all(<span class="c-num">8</span>),
+              child: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.more_horiz),
+            ),
+          ],
+        ),
+      );
+}</code></pre></div>
+</details>
+<h3 id="tabbar-标签栏">Tabbar 标签栏</h3>
+<p><strong>说明</strong>：底部切换</p>
+<figure class="shot"><img src="assets/screenshots/c37.png" alt="Tabbar 标签栏 效果" loading="lazy"><figcaption>Tabbar 标签栏 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> TabbarDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> TabbarDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _TabbarDemoState createState() =&gt; _TabbarDemoState();
+}
+
+<span class="c-kw">class</span> _TabbarDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;TabbarDemo&gt; {
+  int _i = <span class="c-num">0</span>;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        height: <span class="c-num">360</span>,
+        child: <span class="c-type">Column</span>(
+          children: [
+            <span class="c-type">Expanded</span>(
+              child: <span class="c-type">Center</span>(
+                child: UText(<span class="c-str">'页面 ${_i + 1}'</span>, size: <span class="c-num">18</span>, bold: <span class="c-kw">true</span>),
+              ),
+            ),
+            UTabbar(
+              currentIndex: _i,
+              onTap: (v) =&gt; setState(() =&gt; _i = v),
+              items: <span class="c-kw">const</span> [
+                UTabbarItem(icon: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.home_outlined), activeIcon: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.home), label: <span class="c-str">'首页'</span>),
+                UTabbarItem(icon: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.grid_view_outlined), activeIcon: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.grid_view), label: <span class="c-str">'分类'</span>),
+                UTabbarItem(icon: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.person_outline), activeIcon: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.person), label: <span class="c-str">'我的'</span>),
+              ],
+            ),
+          ],
+        ),
+      );
+}</code></pre></div>
+</details>
+<h3 id="tabs-标签页">Tabs 标签页</h3>
+<p><strong>说明</strong>：顶部标签页</p>
+<figure class="shot"><img src="assets/screenshots/c38.png" alt="Tabs 标签页 效果" loading="lazy"><figcaption>Tabs 标签页 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c38_open.png" alt="Tabs 标签页 交互效果" loading="lazy"><figcaption>Tabs 标签页 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> TabsDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> TabsDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        height: <span class="c-num">240</span>,
+        child: UTabs(
+          tabs: <span class="c-kw">const</span> [<span class="c-str">'标签一'</span>, <span class="c-str">'标签二'</span>, <span class="c-str">'标签三'</span>],
+          children: <span class="c-kw">const</span> [
+            <span class="c-type">Center</span>(child: UText(<span class="c-str">'内容一'</span>)),
+            <span class="c-type">Center</span>(child: UText(<span class="c-str">'内容二'</span>)),
+            <span class="c-type">Center</span>(child: UText(<span class="c-str">'内容三'</span>)),
+          ],
+        ),
+      );
+}</code></pre></div>
+</details>
+<h3 id="steps-步骤条">Steps 步骤条</h3>
+<p><strong>说明</strong>：横向步骤</p>
+<figure class="shot"><img src="assets/screenshots/c39.png" alt="Steps 步骤条 效果" loading="lazy"><figcaption>Steps 步骤条 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> StepsDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> StepsDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt;
+      <span class="c-kw">const</span> USteps(steps: [<span class="c-str">'填写'</span>, <span class="c-str">'审核'</span>, <span class="c-str">'完成'</span>], current: <span class="c-num">1</span>);
+}</code></pre></div>
+</details>
+<h3 id="dropdown-下拉菜单">Dropdown 下拉菜单</h3>
+<p><strong>说明</strong>：浮层选项</p>
+<figure class="shot"><img src="assets/screenshots/c40.png" alt="Dropdown 下拉菜单 效果" loading="lazy"><figcaption>Dropdown 下拉菜单 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c40_open.png" alt="Dropdown 下拉菜单 交互效果" loading="lazy"><figcaption>Dropdown 下拉菜单 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> DropdownDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> DropdownDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _DropdownDemoState createState() =&gt; _DropdownDemoState();
+}
+
+<span class="c-kw">class</span> _DropdownDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;DropdownDemo&gt; {
+  int? _v;
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        height: <span class="c-num">240</span>,
+        child: <span class="c-type">Column</span>(
+          children: [
+            UDropdown(
+              options: <span class="c-kw">const</span> [<span class="c-str">'全部'</span>, <span class="c-str">'进行中'</span>, <span class="c-str">'已完成'</span>, <span class="c-str">'已取消'</span>],
+              value: _v,
+              onChanged: (i) =&gt; setState(() =&gt; _v = i),
+            ),
+            <span class="c-kw">const</span> <span class="c-type">Expanded</span>(
+              child: <span class="c-type">Center</span>(child: UText(<span class="c-str">'下方内容可被浮层覆盖'</span>)),
+            ),
+          ],
+        ),
+      );
+}</code></pre></div>
+</details>
+<h3 id="backtop-返回顶部">BackTop 返回顶部</h3>
+<p><strong>说明</strong>：滚动吸顶按钮</p>
+<figure class="shot"><img src="assets/screenshots/c41.png" alt="BackTop 返回顶部 效果" loading="lazy"><figcaption>BackTop 返回顶部 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> BackTopDemo <span class="c-kw">extends</span> <span class="c-type">StatefulWidget</span> {
+  <span class="c-kw">const</span> BackTopDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  _BackTopDemoState createState() =&gt; _BackTopDemoState();
+}
+
+<span class="c-kw">class</span> _BackTopDemoState <span class="c-kw">extends</span> <span class="c-type">State</span>&lt;BackTopDemo&gt; {
+  <span class="c-kw">final</span> ScrollController _c = ScrollController();
+  @override
+  <span class="c-kw">void</span> dispose() {
+    _c.dispose();
+    <span class="c-kw">super</span>.dispose();
+  }
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        height: <span class="c-num">320</span>,
+        child: <span class="c-type">Stack</span>(
+          children: [
+            Positioned.fill(
+              child: <span class="c-type">ListView</span>(
+                controller: _c,
+                padding: <span class="c-kw">const</span> <span class="c-type">EdgeInsets</span>.all(<span class="c-num">12</span>),
+                children: List.generate(
+                  <span class="c-num">30</span>,
+                  (i) =&gt; <span class="c-type">Container</span>(
+                    margin: <span class="c-kw">const</span> <span class="c-type">EdgeInsets</span>.only(bottom: <span class="c-num">8</span>),
+                    padding: <span class="c-kw">const</span> <span class="c-type">EdgeInsets</span>.all(<span class="c-num">12</span>),
+                    decoration: <span class="c-type">BoxDecoration</span>(
+                      color: UView.of(context).surfaceColor,
+                      borderRadius: BorderRadius.circular(<span class="c-num">8</span>),
+                    ),
+                    child: UText(<span class="c-str">'列表项 $i'</span>),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(bottom: <span class="c-num">16</span>, right: <span class="c-num">16</span>, child: UBackTop(controller: _c)),
+          ],
+        ),
+      );
+}</code></pre></div>
+</details>
+<h2 id="布局组件">布局组件</h2>
+<h3 id="grid-宫格">Grid 宫格</h3>
+<p><strong>说明</strong>：多列图标网格</p>
+<figure class="shot"><img src="assets/screenshots/c42.png" alt="Grid 宫格 效果" loading="lazy"><figcaption>Grid 宫格 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> GridDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> GridDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  <span class="c-type">Widget</span> _tile(<span class="c-type">Color</span> c) =&gt; <span class="c-type">Container</span>(
+        width: <span class="c-num">28</span>,
+        height: <span class="c-num">28</span>,
+        decoration: <span class="c-type">BoxDecoration</span>(color: c, borderRadius: BorderRadius.circular(<span class="c-num">8</span>)),
+      );
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; UGrid(
+        crossAxisCount: <span class="c-num">4</span>,
+        items: [
+          UGridItem(icon: _tile(<span class="c-type">Colors</span>.blue), label: <span class="c-str">'功能一'</span>),
+          UGridItem(icon: _tile(<span class="c-type">Colors</span>.green), label: <span class="c-str">'功能二'</span>),
+          UGridItem(icon: _tile(<span class="c-type">Colors</span>.orange), label: <span class="c-str">'功能三'</span>),
+          UGridItem(icon: _tile(<span class="c-type">Colors</span>.purple), label: <span class="c-str">'功能四'</span>),
+          UGridItem(icon: _tile(<span class="c-type">Colors</span>.teal), label: <span class="c-str">'功能五'</span>),
+          UGridItem(icon: _tile(<span class="c-type">Colors</span>.pink), label: <span class="c-str">'功能六'</span>),
+          UGridItem(icon: _tile(<span class="c-type">Colors</span>.indigo), label: <span class="c-str">'功能七'</span>),
+          UGridItem(icon: _tile(<span class="c-type">Colors</span>.amber), label: <span class="c-str">'功能八'</span>),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="swiper-轮播">Swiper 轮播</h3>
+<p><strong>说明</strong>：自动轮播 + 指示点</p>
+<figure class="shot"><img src="assets/screenshots/c43.png" alt="Swiper 轮播 效果" loading="lazy"><figcaption>Swiper 轮播 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> SwiperDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> SwiperDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> USwiper(
+        height: <span class="c-num">140</span>,
+        autoplay: <span class="c-kw">true</span>,
+        children: [
+          ColoredBox(color: <span class="c-type">Colors</span>.blue, child: <span class="c-type">Center</span>(child: UText(<span class="c-str">'幻灯片 1'</span>, color: <span class="c-type">Colors</span>.white))),
+          ColoredBox(color: <span class="c-type">Colors</span>.green, child: <span class="c-type">Center</span>(child: UText(<span class="c-str">'幻灯片 2'</span>, color: <span class="c-type">Colors</span>.white))),
+          ColoredBox(color: <span class="c-type">Colors</span>.orange, child: <span class="c-type">Center</span>(child: UText(<span class="c-str">'幻灯片 3'</span>, color: <span class="c-type">Colors</span>.white))),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="avatar-头像">Avatar 头像</h3>
+<p><strong>说明</strong>：圆形/方形</p>
+<figure class="shot"><img src="assets/screenshots/c44.png" alt="Avatar 头像 效果" loading="lazy"><figcaption>Avatar 头像 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> AvatarDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> AvatarDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> URow(
+        gap: <span class="c-num">16</span>,
+        children: [
+          UAvatar(child: UText(<span class="c-str">'U'</span>, bold: <span class="c-kw">true</span>), size: <span class="c-num">40</span>),
+          UAvatar(child: UText(<span class="c-str">'W'</span>, bold: <span class="c-kw">true</span>), size: <span class="c-num">56</span>, backgroundColor: <span class="c-type">Color</span>(0xFFE6F0FF)),
+          UAvatar(shape: UViewShape.square, radius: <span class="c-num">12</span>, child: UText(<span class="c-str">'S'</span>, bold: <span class="c-kw">true</span>), size: <span class="c-num">48</span>),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="empty-空状态">Empty 空状态</h3>
+<p><strong>说明</strong>：空数据占位</p>
+<figure class="shot"><img src="assets/screenshots/c45.png" alt="Empty 空状态 效果" loading="lazy"><figcaption>Empty 空状态 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> EmptyDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> EmptyDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        height: <span class="c-num">160</span>,
+        child: UEmpty(
+          text: <span class="c-str">'暂无数据'</span>,
+          action: UButton(text: <span class="c-str">'刷新'</span>, onPressed: () {}),
+        ),
+      );
+}</code></pre></div>
+</details>
+<h3 id="skeleton-骨架屏">Skeleton 骨架屏</h3>
+<p><strong>说明</strong>：加载占位动画</p>
+<figure class="shot"><img src="assets/screenshots/c46.png" alt="Skeleton 骨架屏 效果" loading="lazy"><figcaption>Skeleton 骨架屏 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> SkeletonDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> SkeletonDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> UCol(
+        gap: <span class="c-num">12</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          USkeleton(width: <span class="c-num">200</span>),
+          USkeleton(width: <span class="c-num">160</span>, height: <span class="c-num">12</span>),
+          USkeleton(width: <span class="c-num">48</span>, height: <span class="c-num">48</span>, shape: UViewShape.circle),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="sticky-吸顶">Sticky 吸顶</h3>
+<p><strong>说明</strong>：滚动吸顶</p>
+<figure class="shot"><img src="assets/screenshots/c47.png" alt="Sticky 吸顶 效果" loading="lazy"><figcaption>Sticky 吸顶 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> StickyDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> StickyDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        height: <span class="c-num">320</span>,
+        child: USticky(
+          header: <span class="c-type">Container</span>(
+            color: UView.of(context).surfaceColor,
+            padding: <span class="c-kw">const</span> <span class="c-type">EdgeInsets</span>.symmetric(horizontal: <span class="c-num">16</span>, vertical: <span class="c-num">14</span>),
+            child: <span class="c-kw">const</span> UText(<span class="c-str">'吸顶标题'</span>, bold: <span class="c-kw">true</span>, size: <span class="c-num">16</span>),
+          ),
+          body: List.generate(
+            <span class="c-num">20</span>,
+            (i) =&gt; <span class="c-type">Container</span>(
+              padding: <span class="c-kw">const</span> <span class="c-type">EdgeInsets</span>.all(<span class="c-num">14</span>),
+              decoration: <span class="c-type">BoxDecoration</span>(
+                border: <span class="c-type">Border</span>(
+                  bottom: <span class="c-type">BorderSide</span>(color: UView.of(context).borderColor),
+                ),
+              ),
+              child: UText(<span class="c-str">'内容行 $i'</span>),
+            ),
+          ),
+        ),
+      );
+}</code></pre></div>
+</details>
+<h3 id="waterfall-瀑布流">Waterfall 瀑布流</h3>
+<p><strong>说明</strong>：多列不等高</p>
+<figure class="shot"><img src="assets/screenshots/c48.png" alt="Waterfall 瀑布流 效果" loading="lazy"><figcaption>Waterfall 瀑布流 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> WaterfallDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> WaterfallDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  <span class="c-kw">static</span> <span class="c-kw">final</span> List&lt;double&gt; _heights = [<span class="c-num">80</span>, <span class="c-num">120</span>, <span class="c-num">100</span>, <span class="c-num">140</span>, <span class="c-num">90</span>, <span class="c-num">110</span>, <span class="c-num">130</span>, <span class="c-num">70</span>, <span class="c-num">100</span>, <span class="c-num">150</span>, <span class="c-num">95</span>, <span class="c-num">120</span>];
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        height: <span class="c-num">360</span>,
+        child: SingleChildScrollView(
+          child: UWaterfall(
+            columnCount: <span class="c-num">2</span>,
+            spacing: <span class="c-num">8</span>,
+            children: List.generate(_heights.length, (i) {
+              <span class="c-kw">return</span> <span class="c-type">Container</span>(
+                height: _heights[i],
+                decoration: <span class="c-type">BoxDecoration</span>(
+                  color: <span class="c-type">Colors</span>.primaries[i % <span class="c-type">Colors</span>.primaries.length].withOpacity(<span class="c-num">0.25</span>),
+                  borderRadius: BorderRadius.circular(<span class="c-num">8</span>),
+                ),
+                child: <span class="c-type">Center</span>(child: UText(<span class="c-str">'卡片 $i'</span>)),
+              );
+            }),
+          ),
+        ),
+      );
+}</code></pre></div>
+</details>
+<h2 id="数据-其他">数据/其他</h2>
+<h3 id="progress-进度条">Progress 进度条</h3>
+<p><strong>说明</strong>：百分比/主题色</p>
+<figure class="shot"><img src="assets/screenshots/c49.png" alt="Progress 进度条 效果" loading="lazy"><figcaption>Progress 进度条 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> ProgressDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> ProgressDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> UCol(
+        gap: <span class="c-num">12</span>,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          UProgress(percent: <span class="c-num">0.3</span>, showText: <span class="c-kw">true</span>),
+          UProgress(percent: <span class="c-num">0.6</span>, type: UViewType.success, showText: <span class="c-kw">true</span>),
+          UProgress(percent: <span class="c-num">0.85</span>, type: UViewType.warning, showText: <span class="c-kw">true</span>),
+          UProgress(percent: <span class="c-num">1.0</span>, type: UViewType.error),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="countdown-倒计时">CountDown 倒计时</h3>
+<p><strong>说明</strong>：天时分秒</p>
+<figure class="shot"><img src="assets/screenshots/c50.png" alt="CountDown 倒计时 效果" loading="lazy"><figcaption>CountDown 倒计时 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> CountDownDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> CountDownDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> URow(
+        gap: <span class="c-num">12</span>,
+        children: [
+          UCountDown(duration: Duration(minutes: <span class="c-num">1</span>), textSize: <span class="c-num">18</span>),
+          UCountDown(duration: Duration(hours: <span class="c-num">2</span>), textSize: <span class="c-num">18</span>),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="countto-数字滚动">CountTo 数字滚动</h3>
+<p><strong>说明</strong>：动画计数</p>
+<figure class="shot"><img src="assets/screenshots/c51.png" alt="CountTo 数字滚动 效果" loading="lazy"><figcaption>CountTo 数字滚动 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> CountToDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> CountToDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> URow(
+        gap: <span class="c-num">16</span>,
+        children: [
+          UCountTo(end: <span class="c-num">12345</span>, suffix: <span class="c-str">' 次'</span>, type: UViewType.primary),
+          UCountTo(end: <span class="c-num">99.9</span>, decimals: <span class="c-num">1</span>, prefix: <span class="c-str">'¥'</span>, type: UViewType.error),
+        ],
+      );
+}</code></pre></div>
+</details>
+<h3 id="card-卡片">Card 卡片</h3>
+<p><strong>说明</strong>：标题/内容容器</p>
+<figure class="shot"><img src="assets/screenshots/c52.png" alt="Card 卡片 效果" loading="lazy"><figcaption>Card 卡片 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> CardDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> CardDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> UCard(
+        title: UText(<span class="c-str">'卡片标题'</span>, bold: <span class="c-kw">true</span>),
+        extra: UText(<span class="c-str">'更多'</span>, type: UViewType.info, size: <span class="c-num">13</span>),
+        child: UText(<span class="c-str">'这是卡片的内容区域，用于承载正文信息。'</span>),
+      );
+}</code></pre></div>
+</details>
+<h3 id="loadmore-加载更多">LoadMore 加载更多</h3>
+<p><strong>说明</strong>：加载状态</p>
+<figure class="shot"><img src="assets/screenshots/c53.png" alt="LoadMore 加载更多 效果" loading="lazy"><figcaption>LoadMore 加载更多 效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> LoadMoreDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> LoadMoreDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-kw">const</span> ULoadMore(status: ULoadMoreStatus.normal);
+}</code></pre></div>
+</details>
+<h2 id="其他组件">其他组件</h2>
+<h3 id="floatingball-悬浮球">FloatingBall 悬浮球</h3>
+<p><strong>说明</strong>：可拖拽 / 展开菜单</p>
+<figure class="shot"><img src="assets/screenshots/c54.png" alt="FloatingBall 悬浮球 效果" loading="lazy"><figcaption>FloatingBall 悬浮球 效果</figcaption></figure>
+<p>交互效果：</p>
+<figure class="shot"><img src="assets/screenshots/c54_open.png" alt="FloatingBall 悬浮球 交互效果" loading="lazy"><figcaption>FloatingBall 悬浮球 交互效果</figcaption></figure>
+<details>
+<summary>用法示例（点击展开）</summary>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart"><span class="c-kw">class</span> FloatingBallDemo <span class="c-kw">extends</span> <span class="c-type">StatelessWidget</span> {
+  <span class="c-kw">const</span> FloatingBallDemo({<span class="c-type">Key</span>? key}) : <span class="c-kw">super</span>(key: key);
+  @override
+  <span class="c-type">Widget</span> build(<span class="c-type">BuildContext</span> context) =&gt; <span class="c-type">Container</span>(
+        height: <span class="c-num">360</span>,
+        decoration: <span class="c-type">BoxDecoration</span>(
+          color: UView.of(context).backgroundColor,
+          borderRadius: BorderRadius.circular(<span class="c-num">8</span>),
+        ),
+        child: UFloatingBall(
+          actions: <span class="c-kw">const</span> [
+            UFloatingAction(child: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.edit, color: <span class="c-type">Colors</span>.white), label: <span class="c-str">'编辑'</span>),
+            UFloatingAction(child: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.share, color: <span class="c-type">Colors</span>.white), label: <span class="c-str">'分享'</span>),
+            UFloatingAction(child: <span class="c-type">Icon</span>(<span class="c-type">Icons</span>.add, color: <span class="c-type">Colors</span>.white), label: <span class="c-str">'新建'</span>),
+          ],
+        ),
+      );
+}</code></pre></div>
+</details>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>Copyright © 2026 uview_flutter contributors · 基于 MIT License 开源发布</p>
+  <p>本组件库为 <a href="https://uviewpro.cn" target="_blank" rel="noopener">uView UI</a> 的 Flutter 社区复刻，与官方无隶属关系。</p>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

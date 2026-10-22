@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>uView Flutter · Flutter UI 组件库</title>
+<meta name="description" content="uView UI 组件库的 Flutter 社区复刻版 · 主题系统 + 50+ 基础组件">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <button class="menu-toggle" aria-label="菜单">☰</button>
+  <a class="logo" href="index.html">
+    <span class="mark">U</span><span>uView Flutter</span>
+  </a>
+  <nav>
+    <a href="index.html">首页</a>
+    <a href="components.html">组件</a>
+    <a href="index.html#license">许可证</a>
+    <a class="gh" href="https://github.com/your-org/uview_flutter" target="_blank" rel="noopener">GitHub</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <h1>uView Flutter</h1>
+  <p class="sub">uView UI 组件库的 Flutter 社区复刻版：内置主题系统，50+ 基础组件，纯框架实现、零额外依赖。</p>
+  <div class="cta">
+    <a class="btn btn-primary" href="components.html">浏览组件</a>
+    <a class="btn btn-ghost" href="https://github.com/your-org/uview_flutter" target="_blank" rel="noopener">GitHub 仓库</a>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature"><h3>主题系统</h3><p>UViewThemeData 提供 uView 默认蓝/成功/警告/错误/信息色、圆角、字号、间距 token，支持运行时 UView.update 切换。</p></div>
+  <div class="feature"><h3>零额外依赖</h3><p>仅依赖 Flutter 框架与 cupertino_icons，全部组件纯框架实现，体积可控。</p></div>
+  <div class="feature"><h3>Dart 2.17 兼容</h3><p>未使用 records / pattern 等 Dart 3 特性，对老项目友好。</p></div>
+  <div class="feature"><h3>配套 Demo</h3><p>example/ 工程按 uView 分类提供可交互预览页，效果截图与用法示例一一对应。</p></div>
+</section>
+
+<section class="section">
+  <h2>快速安装</h2>
+  <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-yaml">dependencies:
+  uview_flutter:
+    git:
+      url: https://github.com/your-org/uview_flutter
+      ref: main</code></pre></div>
+</section>
+
+<section class="section">
+  <h2>快速开始</h2>
+  <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre><code class="lang-dart">import 'package:flutter/material.dart';
+import 'package:uview_flutter/uview_flutter.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) => UView(
+    theme: const UViewThemeData(),
+    child: MaterialApp(
+      home: Scaffold(
+        body: UCol(gap: 12, children: [
+          const UText('欢迎使用 uview_flutter', bold: true, size: 18),
+          const UButton(text: '主要按钮', type: UViewType.primary),
+          UCell(title: '地址', value: '杭州', isLink: true),
+        ]),
+      ),
+    ),
+  );
+}</code></pre></div>
+</section>
+
+<section class="section">
+  <h2>组件分类</h2>
+  <div class="grid-cats"><div class="cat-card"><h4>基础组件</h4><div class="chips"><span class="chip">Button</span><span class="chip">Text</span><span class="chip">Tag</span><span class="chip">Badge</span><span class="chip">Cell</span><span class="chip">Icon</span><span class="chip">Image</span><span class="chip">Loading</span><span class="chip">Gap</span><span class="chip">Layout</span><span class="chip">Divider</span></div></div><div class="cat-card"><h4>表单组件</h4><div class="chips"><span class="chip">Form</span><span class="chip">Input</span><span class="chip">Textarea</span><span class="chip">Search</span><span class="chip">VerificationCode</span><span class="chip">Checkbox</span><span class="chip">Radio</span><span class="chip">Switch</span><span class="chip">Select</span><span class="chip">NumberBox</span><span class="chip">Slider</span><span class="chip">Rate</span><span class="chip">Picker</span><span class="chip">Calendar</span><span class="chip">Upload</span><span class="chip">Keyboard</span></div></div><div class="cat-card"><h4>反馈组件</h4><div class="chips"><span class="chip">Toast</span><span class="chip">AlertTips</span><span class="chip">Modal</span><span class="chip">Popup</span><span class="chip">ActionSheet</span><span class="chip">NoticeBar</span><span class="chip">Collapse</span><span class="chip">SwipeAction</span></div></div><div class="cat-card"><h4>导航组件</h4><div class="chips"><span class="chip">Navbar</span><span class="chip">Tabbar</span><span class="chip">Tabs</span><span class="chip">Steps</span><span class="chip">Dropdown</span><span class="chip">BackTop</span></div></div><div class="cat-card"><h4>布局组件</h4><div class="chips"><span class="chip">Grid</span><span class="chip">Swiper</span><span class="chip">Avatar</span><span class="chip">Empty</span><span class="chip">Skeleton</span><span class="chip">Sticky</span><span class="chip">Waterfall</span></div></div><div class="cat-card"><h4>数据/其他</h4><div class="chips"><span class="chip">Progress</span><span class="chip">CountDown</span><span class="chip">CountTo</span><span class="chip">Card</span><span class="chip">LoadMore</span></div></div><div class="cat-card"><h4>其他组件</h4><div class="chips"><span class="chip">FloatingBall</span></div></div></div>
+  <p style="margin-top:18px"><a class="btn btn-primary" href="components.html">查看全部组件与示例 →</a></p>
+</section>
+
+<section class="license-box" id="license">
+  <h2>开源许可 · MIT</h2>
+  <p>uview_flutter 以 <strong>MIT License</strong> 开源，可自由用于商业与非商业项目。完整文本见 <a href="LICENSE" target="_blank" rel="noopener">LICENSE</a> 文件。</p>
+  <pre>MIT License
+
+Copyright (c) 2026 uview_flutter contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+</section>
+
+
+<footer class="site-footer">
+  <p>Copyright © 2026 uview_flutter contributors · 基于 MIT License 开源发布</p>
+  <p>本组件库为 <a href="https://uviewpro.cn" target="_blank" rel="noopener">uView UI</a> 的 Flutter 社区复刻，与官方无隶属关系。</p>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
